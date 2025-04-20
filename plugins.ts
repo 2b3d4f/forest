@@ -8,6 +8,7 @@ import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
 import { Options as SitemapOptions, sitemap } from "lume/plugins/sitemap.ts";
 import { favicon, Options as FaviconOptions } from "lume/plugins/favicon.ts";
+import { tailwindCSS, Options as TailwindCSSOptions } from "lume/plugins/tailwindcss.ts";
 import { merge } from "lume/core/utils/object.ts";
 
 import "lume/types.ts";
@@ -16,6 +17,7 @@ export interface Options {
   sitemap?: Partial<SitemapOptions>;
   favicon?: Partial<FaviconOptions>;
   remark?: Partial<RemarkOptions>;
+  tailwindCSS?: Partial<TailwindCSSOptions>;
 }
 
 export const defaults: Options = {
@@ -43,6 +45,8 @@ export default function (userOptions?: Options) {
       .use(metas())
       .use(sitemap(options.sitemap))
       .use(favicon(options.favicon))
+      .use(tailwindCSS(options.tailwindCSS))
+      .add("style.css")
       .add("uploads");
   };
 }
