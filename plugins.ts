@@ -1,3 +1,9 @@
+import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
+import remarkGfm from "npm:remark-gfm@4";
+import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
+import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strikethrough@1";
+import rehypeRaw from "npm:rehype-raw@7";
+import rehypeSanitize from "npm:rehype-sanitize@6";
 import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
 import { Options as SitemapOptions, sitemap } from "lume/plugins/sitemap.ts";
@@ -9,11 +15,20 @@ import "lume/types.ts";
 export interface Options {
   sitemap?: Partial<SitemapOptions>;
   favicon?: Partial<FaviconOptions>;
+  remark?: Partial<RemarkOptions>;
 }
 
 export const defaults: Options = {
   favicon: {
     input: "uploads/favicon.svg",
+  },
+  remark: {
+    remarkPlugins: [
+      remarkGfm,
+      remarkCjkFriendly,
+      remarkCjkFriendlyGfmStrikethrough,
+    ],
+    rehypePlugins: [rehypeRaw, rehypeSanitize],
   },
 };
 
@@ -23,6 +38,7 @@ export default function (userOptions?: Options) {
 
   return (site: Lume.Site) => {
     site
+      .use(remark(options.remark))
       .use(basePath())
       .use(metas())
       .use(sitemap(options.sitemap))
