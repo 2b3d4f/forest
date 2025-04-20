@@ -43,6 +43,6 @@ export default function (userOptions?: Options) {
       .use(metas())
       .use(sitemap(options.sitemap))
       .use(favicon(options.favicon))
-      .copy("uploads");
+      .add("uploads");
   };
 }
