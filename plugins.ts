@@ -7,20 +7,36 @@ import rehypeSanitize from "npm:rehype-sanitize@6";
 import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
 import { sitemap, Options as SitemapOptions } from "lume/plugins/sitemap.ts";
+import { feed, Options as FeedOptions } from "lume/plugins/feed.ts";
 import { favicon, Options as FaviconOptions } from "lume/plugins/favicon.ts";
-import { tailwindCSS, Options as TailwindCSSOptions } from "lume/plugins/tailwindcss.ts";
+import {
+  tailwindCSS,
+  Options as TailwindCSSOptions,
+} from "lume/plugins/tailwindcss.ts";
 import { merge } from "lume/core/utils/object.ts";
 
 import "lume/types.ts";
 
 export interface Options {
   sitemap?: Partial<SitemapOptions>;
+  feed?: Partial<FeedOptions>;
   favicon?: Partial<FaviconOptions>;
   remark?: Partial<RemarkOptions>;
   tailwindCSS?: Partial<TailwindCSSOptions>;
 }
 
 export const defaults: Options = {
+  feed: {
+    output: ["/feed.xml", "/feed.json"],
+    query: "type=post",
+    info: {
+      title: "=metas.site",
+      description: "=metas.description",
+    },
+    items: {
+      title: "=title",
+    },
+  },
   favicon: {
     input: "uploads/favicon.svg",
   },
@@ -44,6 +60,7 @@ export default function (userOptions?: Options) {
       .use(basePath())
       .use(metas())
       .use(sitemap(options.sitemap))
+      .use(feed(options.feed))
       .use(favicon(options.favicon))
       .use(tailwindCSS(options.tailwindCSS))
       .add("style.css")
