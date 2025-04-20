@@ -5,6 +5,8 @@ import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strik
 import rehypeRaw from "npm:rehype-raw@7";
 import rehypeSanitize from "npm:rehype-sanitize@6";
 import basePath from "lume/plugins/base_path.ts";
+import slugifyUrls from "lume/plugins/slugify_urls.ts";
+import resolveUrls from "lume/plugins/resolve_urls.ts";
 import metas from "lume/plugins/metas.ts";
 import { sitemap, Options as SitemapOptions } from "lume/plugins/sitemap.ts";
 import { feed, Options as FeedOptions } from "lume/plugins/feed.ts";
@@ -56,6 +58,8 @@ export default function (userOptions?: Options) {
 
   return (site: Lume.Site) => {
     site
+      .use(resolveUrls())
+      .use(slugifyUrls())
       .use(remark(options.remark))
       .use(basePath())
       .use(metas())
