@@ -6,7 +6,7 @@ import rehypeRaw from "npm:rehype-raw@7";
 import rehypeSanitize from "npm:rehype-sanitize@6";
 import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
-import { Options as SitemapOptions, sitemap } from "lume/plugins/sitemap.ts";
+import { sitemap, Options as SitemapOptions } from "lume/plugins/sitemap.ts";
 import { favicon, Options as FaviconOptions } from "lume/plugins/favicon.ts";
 import { tailwindCSS, Options as TailwindCSSOptions } from "lume/plugins/tailwindcss.ts";
 import { merge } from "lume/core/utils/object.ts";
