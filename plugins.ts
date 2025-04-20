@@ -1,3 +1,4 @@
+import { date, Options as DateOptions } from "lume/plugins/date.ts";
 import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
 import remarkGfm from "npm:remark-gfm@4";
 import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
@@ -21,6 +22,7 @@ import "lume/types.ts";
 
 export interface Options {
   sitemap?: Partial<SitemapOptions>;
+  date?: Partial<DateOptions>;
   feed?: Partial<FeedOptions>;
   favicon?: Partial<FaviconOptions>;
   remark?: Partial<RemarkOptions>;
@@ -62,6 +64,7 @@ export default function (userOptions?: Options) {
       .use(slugifyUrls())
       .use(remark(options.remark))
       .use(basePath())
+      .use(date(options.date))
       .use(metas())
       .use(sitemap(options.sitemap))
       .use(feed(options.feed))
