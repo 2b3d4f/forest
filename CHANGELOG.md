@@ -9,4 +9,4 @@ project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.1.0] - 2025-04-18
 First version
 
-[0.1.0]: https://github.com/lumeland/theme-boilerplate/releases/tag/v0.1.0
+[0.1.0]: https://github.com/2b3d4f/forest/releases/tag/v0.1.0
