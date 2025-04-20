@@ -1,4 +1,3 @@
-import lightningcss from "lume/plugins/lightningcss.ts";
 import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
 import { Options as SitemapOptions, sitemap } from "lume/plugins/sitemap.ts";
@@ -23,7 +22,7 @@ export default function (userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   return (site: Lume.Site) => {
-    site.use(lightningcss())
+    site
       .use(basePath())
       .use(metas())
       .use(sitemap(options.sitemap))
