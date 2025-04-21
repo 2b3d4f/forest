@@ -1,3 +1,7 @@
+// import {
+//   googleFonts,
+//   Options as GoogleFontsOptions,
+// } from "lume/plugins/google_fonts.ts";
 import { date, Options as DateOptions } from "lume/plugins/date.ts";
 import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
 import remarkGfm from "npm:remark-gfm@4";
@@ -24,6 +28,7 @@ import { merge } from "lume/core/utils/object.ts";
 import "lume/types.ts";
 
 export interface Options {
+  // googleFonts?: Partial<GoogleFontsOptions>;
   sitemap?: Partial<SitemapOptions>;
   date?: Partial<DateOptions>;
   feed?: Partial<FeedOptions>;
@@ -61,6 +66,11 @@ export const defaults: Options = {
       // rehypeAutolinkHeading,
     ],
   },
+  // googleFonts: {
+  //   fonts: {
+  //     "Roboto Serif": "https://fonts.google.com/share?selection.family=Roboto+Serif:ital,opsz,wdth,wght,GRAD@0,8..144,87.5,100..900,50;1,8..144,87.5,100..900,50"
+  //   }
+  // }
 };
 
 /** Configure the site */
@@ -69,6 +79,7 @@ export default function (userOptions?: Options) {
 
   return (site: Lume.Site) => {
     site
+      // .use(googleFonts(options.googleFonts as GoogleFontsOptions))
       .use(resolveUrls())
       .use(slugifyUrls())
       .use(remark(options.remark))
