@@ -3,8 +3,11 @@ import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
 import remarkGfm from "npm:remark-gfm@4";
 import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
 import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strikethrough@1";
+// import remarkToc from "npm:remark-toc@9";
 import rehypeRaw from "npm:rehype-raw@7";
 import rehypeSanitize from "npm:rehype-sanitize@6";
+// import rehypeSlug from "npm:rehype-slug@6";
+// import rehypeAutolinkHeadings from "npm:rehype-autolink-headings@7";
 import basePath from "lume/plugins/base_path.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
@@ -49,8 +52,14 @@ export const defaults: Options = {
       remarkGfm,
       remarkCjkFriendly,
       remarkCjkFriendlyGfmStrikethrough,
+      // remarkToc,
     ],
-    rehypePlugins: [rehypeRaw, rehypeSanitize],
+    rehypePlugins: [
+      rehypeRaw,
+      rehypeSanitize,
+      // rehypeSlug,
+      // rehypeAutolinkHeading,
+    ],
   },
 };
 
