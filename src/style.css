@@ -1,2 +1,8 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+@theme {
+  /* Add custom fonts here */
+  /* Example: */
+  /* --font-roboto-serif: "Roboto Serif", serif; */
+}
