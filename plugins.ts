@@ -24,7 +24,7 @@ import {
   Options as TailwindCSSOptions,
 } from "lume/plugins/tailwindcss.ts";
 import minifyHTML from "lume/plugins/minify_html.ts";
-import lightningCss from "lume/plugins/lightningcss.ts"
+import lightningCss from "lume/plugins/lightningcss.ts";
 import { merge } from "lume/core/utils/object.ts";
 
 import "lume/types.ts";
