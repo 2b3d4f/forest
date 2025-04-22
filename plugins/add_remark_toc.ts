@@ -28,7 +28,7 @@ export function addRemarkToc(userOptions: Options) {
           page.data.content = replaceText(page.data.content as string, options);
         } catch (error) {
           log.error(
-            `[add-toc plugin] Error replacing ${page.sourcePath}: ${error}`
+            `[add-remark-toc plugin] Error replacing ${page.sourcePath}: ${error}`
           );
         }
       }
