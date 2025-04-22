@@ -1,0 +1,14 @@
+{
+  "files.readonlyInclude": {
+    "public/**": true
+  },
+  "files.watcherExclude": {
+    "public/**": true
+  },
+  "search.exclude": {
+    "public/**": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "vento": "html"
+  }
+}
