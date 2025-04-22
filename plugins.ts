@@ -3,16 +3,20 @@ import {
   Options as GoogleFontsOptions,
 } from "lume/plugins/google_fonts.ts";
 import { date, Options as DateOptions } from "lume/plugins/date.ts";
+import {
+  addRemarkToc,
+  Options as AddRemarkTocOptions,
+} from "./plugins/add_remark_toc.ts";
 import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
-import prism, { Options as PrismOptions } from "lume/plugins/prism.ts";
+import { prism, Options as PrismOptions } from "lume/plugins/prism.ts";
 import remarkGfm from "npm:remark-gfm@4";
 import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
 import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strikethrough@1";
-// import remarkToc from "npm:remark-toc@9";
+import remarkToc from "npm:remark-toc@9";
 import rehypeRaw from "npm:rehype-raw@7";
 // import rehypeSanitize from "npm:rehype-sanitize@6";
-// import rehypeSlug from "npm:rehype-slug@6";
-// import rehypeAutolinkHeadings from "npm:rehype-autolink-headings@7";
+import rehypeSlug from "npm:rehype-slug@6";
+import rehypeAutolinkHeadings from "npm:rehype-autolink-headings@7";
 import basePath from "lume/plugins/base_path.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
@@ -54,6 +58,7 @@ export interface Options {
   tailwindCSS?: Partial<TailwindCSSOptions>;
   prism?: Partial<PrismOptions>;
   fonts?: Partial<FontsOptions>;
+  addToc?: Partial<AddRemarkTocOptions>;
 }
 
 export const defaults: Options = {
@@ -76,13 +81,13 @@ export const defaults: Options = {
       remarkGfm,
       remarkCjkFriendly,
       remarkCjkFriendlyGfmStrikethrough,
-      // remarkToc,
+      remarkToc,
     ],
     rehypePlugins: [
       rehypeRaw,
-      // rehypeSanitize,
-      // rehypeSlug,
-      // rehypeAutolinkHeading,
+      // rehypeSanitize, //Sanitize breaks footnotes
+      rehypeSlug,
+      rehypeAutolinkHeadings,
     ],
   },
   googleFonts: {
@@ -111,6 +116,7 @@ export default function (userOptions?: Options) {
     site.data("fonts", options.fonts);
 
     site
+      .use(addRemarkToc(options.addToc))
       .use(
         googleFonts({
           cssFile: "style.css",
