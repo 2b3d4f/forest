@@ -1,5 +1,6 @@
 ---
 title: "The Ancient Art of Squirrel-Powered Coding: Why Your IDE Needs More Acorns"
+author: John Doe
 ---
 
 <!-- Welcome, codecraft enthusiasts and casual nut hoarders! Today, we explore the obscure yet critically underappreciated field: squirrel-powered coding. Sure, you’ve heard of cloud computing, serverless architecture, and even rubber duck debugging—but have you ever debugged by bribing a woodland critter with an acorn? Let’s journey into this acorn-laden realm. -->
