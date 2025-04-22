@@ -9,3 +9,15 @@
   --font-display: display, system-ui;
   --font-text: text, system-ui;
 }
+
+:is(:where(.prose *)) {
+  &:is(:where(.table-of-contents:has(ul))) {
+    @apply p-5 border border-[var(--tw-prose-hr)] rounded-lg;
+    > :first-child {
+      @apply mt-0 mb-5;
+    }
+    > :last-child {
+      @apply mb-0;
+    }
+  }
+}
