@@ -122,4 +122,14 @@
       }
     }
   }
+
+  /* Fix li margin */
+  &:is(:where(li)) {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
