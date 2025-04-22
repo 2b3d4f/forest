@@ -1,4 +1,11 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
-@import "css/prose_fix.css"
+@import "css/prose_fix.css";
+
+/* google-fonts-placeholder */
+
+@theme {
+  --font-display: display, system-ui;
+  --font-text: display, system-ui;
+}
