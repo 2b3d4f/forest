@@ -1,3 +1,4 @@
 blanks-around-headings: false
 no-inline-html: false
 line-length: false
+no-blanks-blockquote: false
