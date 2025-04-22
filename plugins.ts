@@ -35,7 +35,7 @@ const FallbackFonts = {
   Sans: "sans",
 } as const;
 
-type FallbackFonts = typeof FallbackFonts[keyof typeof FallbackFonts]
+type FallbackFonts = (typeof FallbackFonts)[keyof typeof FallbackFonts];
 
 interface FontsOptions {
   fallback?: {
@@ -108,7 +108,7 @@ export default function (userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   return (site: Lume.Site) => {
-    site.data("fonts", options.fonts)
+    site.data("fonts", options.fonts);
 
     site
       .use(
