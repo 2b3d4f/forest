@@ -7,5 +7,5 @@
 
 @theme {
   --font-display: display, system-ui;
-  --font-text: display, system-ui;
+  --font-text: text, system-ui;
 }
