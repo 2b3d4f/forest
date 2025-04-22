@@ -4,6 +4,7 @@
 // } from "lume/plugins/google_fonts.ts";
 import { date, Options as DateOptions } from "lume/plugins/date.ts";
 import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
+import prism, { Options as PrismOptions } from "lume/plugins/prism.ts";
 import remarkGfm from "npm:remark-gfm@4";
 import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
 import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strikethrough@1";
@@ -37,6 +38,7 @@ export interface Options {
   favicon?: Partial<FaviconOptions>;
   remark?: Partial<RemarkOptions>;
   tailwindCSS?: Partial<TailwindCSSOptions>;
+  prism?: Partial<PrismOptions>;
 }
 
 export const defaults: Options = {
@@ -88,6 +90,7 @@ export default function (userOptions?: Options) {
       .use(basePath())
       .use(date(options.date))
       .use(metas())
+      .use(prism(options.prism))
       .use(sitemap(options.sitemap))
       .use(feed(options.feed))
       .use(favicon(options.favicon))
