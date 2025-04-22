@@ -9,7 +9,7 @@ import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
 import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strikethrough@1";
 // import remarkToc from "npm:remark-toc@9";
 import rehypeRaw from "npm:rehype-raw@7";
-import rehypeSanitize from "npm:rehype-sanitize@6";
+// import rehypeSanitize from "npm:rehype-sanitize@6";
 // import rehypeSlug from "npm:rehype-slug@6";
 // import rehypeAutolinkHeadings from "npm:rehype-autolink-headings@7";
 import basePath from "lume/plugins/base_path.ts";
@@ -61,7 +61,7 @@ export const defaults: Options = {
     ],
     rehypePlugins: [
       rehypeRaw,
-      rehypeSanitize,
+      // rehypeSanitize,
       // rehypeSlug,
       // rehypeAutolinkHeading,
     ],
