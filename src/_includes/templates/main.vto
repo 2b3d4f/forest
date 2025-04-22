@@ -1,0 +1,25 @@
+<header class="max-w-xl mx-auto">
+  <h1 class="font-bold text-4xl italic">{{ title }}</h1>
+
+  <div class="flex not-has-[*]:hidden *:not-only:not-last:after:content-['•'] *:after:mx-[0.25em] mt-2 text-sm">
+    {{ if author }}
+      {{ if (Array.isArray(author)) }}
+        {{ set authors = author |> join(", ") }}
+        <p>by {{ authors }}</p>
+      {{ else }}
+        <p>by {{ author }}</p>
+      {{ /if }}
+    {{ /if }}
+    {{ if (display_date && date) }}
+      <p>
+        <time datetime="{{ date |> date('DATE') }}">{{
+          date
+          |> date("HUMAN_DATE")
+        }}</time>
+      </p>
+    {{ /if }}
+  </div>
+</header>
+<div class="prose dark:prose-invert max-w-none mx-auto mt-5">
+  {{ content }}
+</div>
