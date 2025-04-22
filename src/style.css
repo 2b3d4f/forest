@@ -6,3 +6,16 @@
   /* Example: */
   /* --font-roboto-serif: "Roboto Serif", serif; */
 }
+
+/* Remove ::before and ::after content and italicization of <blockquote> added by @tailwindcss/typography */
+
+:is(:where(.prose *)) {
+  &:is(:where(blockquote):not(:where([class~="not-prose"] *))) {
+    font-style: normal;
+    > *:first-child::before,
+    > *:last-child::after {
+      --tw-content: none;
+      content: none
+    }
+  }
+}
