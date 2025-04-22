@@ -12,8 +12,13 @@ export default function (options: Partial<Options> = {}) {
     // Add remote files
     const files = [
       "_includes/layouts/base.vto",
+      "_includes/layouts/page.vto",
+      "_includes/layouts/post.vto",
+      "_includes/templates/main.vto",
+      "_includes/css/prose_fix.css",
       "uploads/favicon.svg",
       "_data.yml",
+      "posts/_data.yml",
       "404.md",
       "index.vto",
       "style.css",
