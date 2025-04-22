@@ -34,6 +34,17 @@ cms.document({
   ],
 });
 
+cms.document({
+  name: "404 page",
+  description: "404 page of the site",
+  store: "src:404.vto",
+  fields: [
+    "layout: hidden",
+    "title: text",
+    "content: code",
+  ],
+});
+
 cms.upload("uploads: Uploaded files", "src:uploads");
 
 export default cms;

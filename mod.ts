@@ -19,7 +19,7 @@ export default function (options: Partial<Options> = {}) {
       "uploads/favicon.svg",
       "_data.yml",
       "posts/_data.yml",
-      "404.md",
+      "404.vto",
       "index.vto",
       "style.css",
     ];
