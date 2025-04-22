@@ -1,5 +1,5 @@
 <header class="max-w-xl mx-auto">
-  <h1 class="font-bold text-4xl italic">{{ title }}</h1>
+  <h1 class="font-bold text-4xl">{{ title }}</h1>
 
   <div class="flex not-has-[*]:hidden *:not-only:not-last:after:content-['•'] *:after:mx-[0.25em] mt-2 text-sm">
     {{ if author }}
@@ -20,6 +20,6 @@
     {{ /if }}
   </div>
 </header>
-<div class="prose dark:prose-invert prose-headings:font-display max-w-none mx-auto mt-5">
+<div class="prose dark:prose-invert prose-headings:font-display max-w-xl mx-auto mt-5">
   {{ content }}
 </div>
