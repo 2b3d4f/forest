@@ -30,6 +30,20 @@ import { merge } from "lume/core/utils/object.ts";
 
 import "lume/types.ts";
 
+const FallbackFonts = {
+  Serif: "serif",
+  Sans: "sans",
+} as const;
+
+type FallbackFonts = typeof FallbackFonts[keyof typeof FallbackFonts]
+
+interface FontsOptions {
+  fallback?: {
+    display?: FallbackFonts;
+    text?: FallbackFonts;
+  };
+}
+
 export interface Options {
   googleFonts?: Partial<GoogleFontsOptions>;
   sitemap?: Partial<SitemapOptions>;
@@ -39,6 +53,7 @@ export interface Options {
   remark?: Partial<RemarkOptions>;
   tailwindCSS?: Partial<TailwindCSSOptions>;
   prism?: Partial<PrismOptions>;
+  fonts?: Partial<FontsOptions>;
 }
 
 export const defaults: Options = {
@@ -72,9 +87,18 @@ export const defaults: Options = {
   },
   googleFonts: {
     fonts: {
+      // display:
+      //   "https://fonts.google.com/share?selection.family=Libre+Baskerville:ital,wght@0,400;0,700;1,400",
+      // text: "https://fonts.google.com/share?selection.family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700",
       display:
-        "https://fonts.google.com/share?selection.family=Libre+Baskerville:ital,wght@0,400;0,700;1,400",
-      text: "https://fonts.google.com/share?selection.family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700",
+        "https://fonts.google.com/share?selection.family=Poppins:ital,wght@0,400;0,700;1,400;1,700",
+      text: "https://fonts.google.com/share?selection.family=Roboto:ital,wght@0,100..900;1,100..900",
+    },
+  },
+  fonts: {
+    fallback: {
+      display: "sans",
+      text: "sans",
     },
   },
 };
@@ -84,12 +108,16 @@ export default function (userOptions?: Options) {
   const options = merge(defaults, userOptions);
 
   return (site: Lume.Site) => {
+    site.data("fonts", options.fonts)
+
     site
-      .use(googleFonts({
-        cssFile: "style.css",
-        placeholder: "/* google-fonts-placeholder */",
-        fonts: options.googleFonts.fonts
-      } as GoogleFontsOptions))
+      .use(
+        googleFonts({
+          cssFile: "style.css",
+          placeholder: "/* google-fonts-placeholder */",
+          fonts: options.googleFonts.fonts,
+        } as GoogleFontsOptions)
+      )
       .use(resolveUrls())
       .use(slugifyUrls())
       .use(remark(options.remark))
