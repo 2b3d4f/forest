@@ -23,6 +23,8 @@ import {
   tailwindCSS,
   Options as TailwindCSSOptions,
 } from "lume/plugins/tailwindcss.ts";
+import minifyHTML from "lume/plugins/minify_html.ts";
+import lightningCss from "lume/plugins/lightningcss.ts"
 import { merge } from "lume/core/utils/object.ts";
 
 import "lume/types.ts";
@@ -90,6 +92,8 @@ export default function (userOptions?: Options) {
       .use(feed(options.feed))
       .use(favicon(options.favicon))
       .use(tailwindCSS(options.tailwindCSS))
+      .use(minifyHTML())
+      .use(lightningCss())
       .add("style.css")
       .add("uploads");
   };
