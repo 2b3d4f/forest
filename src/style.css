@@ -11,8 +11,18 @@
 }
 
 :is(:where(.prose *)) {
-  &:is(:where(.table-of-contents:has(ul))) {
+  &:is(
+      :where(.table-of-contents:has(ul)):not(
+          :where([class~="not-prose"], [class~="not-prose"] *)
+        )
+    ) {
     @apply p-5 border border-[var(--tw-prose-hr)] rounded-lg;
+    &:first-child {
+      @apply mt-5;
+    }
+    &:last-child {
+      @apply mb-5;
+    }
     > :first-child {
       @apply mt-0 mb-5;
     }
