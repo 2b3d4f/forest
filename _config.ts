@@ -5,6 +5,13 @@ const site = lume({
   src: "./src",
 });
 
-site.use(plugins());
+site.use(plugins({
+  prism: {
+    theme: {
+      name: "okaidia",
+      cssFile: "prism.css"
+    }
+  },
+}));
 
 export default site;
