@@ -1,4 +1,4 @@
-<header class="max-w-xl mx-auto mt-10">
+<header class='max-w-xl mx-auto mt-10 {{if hide_details }}{{echo " hidden"}}{{ else if visually_hide_details }}{{ echo " sr-only"}}{{ /if }}'>
   <h1 class="font-bold text-4xl empty:hidden">{{ title }}</h1>
   <div class="flex not-has-[*]:hidden *:not-only:not-last:after:content-['•'] *:after:mx-1.5 mt-2 text-sm text-neutral-500">
     {{ if author }}
