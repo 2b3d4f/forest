@@ -2,15 +2,4 @@
 title: Home
 ---
 
-<p>This is a boilerplate to create a Lume theme.</p>
-
-{{ set posts = search.pages("type=post", "date=desc") }}
-<ul class="font-custom">
-  {{ for post of posts }}
-    <li>
-      <a href="{{ post.url }}" title="{{ post.title }}"><time
-          datetime="{{ post.date |> date('DATE') }}"
-        >{{ post.date |> date("DATE") }}</time>: {{ post.title }}</a>
-    </li>
-  {{ /for }}
-</ul>
+<p>Hello, world!</p>

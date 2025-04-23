@@ -22,5 +22,7 @@ jobs:
         with:
           deno-version: v2.x
 
+      - run: cd demo
+
       - name: Build GitHub Pages with Lume
         uses: lumeland/build/gh-pages@main
