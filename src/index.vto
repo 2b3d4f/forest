@@ -1,5 +1,37 @@
 ---
 title: Home
+hide_details: true
 ---
 
-<p>Hello, world!</p>
+<div class="not-prose mb-5 text-black text-center **:[a]:underline">
+  <div class="mx-auto w-fit">
+    <h1 class="text-6xl/15 font-bold">
+      <a href="https://github.com/2b3d4f/forest" target="_blank">Forest</a>
+    </h1>
+    <p class="font-display text-sm/5 text-right font-bold mt-2">
+      Theme for <a href="https://github.com/lumeland/lume" target="_blank"
+      >Lume</a>
+    </p>
+  </div>
+</div>
+
+<div class="text-center not-prose **:[a]:underline">
+  <p class="text-xl">This is a demo!</p>
+  <p class="not-prose text-center text-neutral-400">
+    <small>build: <a
+        href="https://github.com/2b3d4f/forest/commit/{{ git.hash.long }}"
+        target="_blank"
+      >{{ git.hash.short }}</a></small>
+  </p>
+</div>
+
+{{ set posts = search.pages("type=post", "date=desc") }}
+<ul>
+  {{ for post of posts }}
+    <li>
+      <a href="{{ post.url }}" title="{{ post.title }}"><time
+          datetime="{{ post.date |> date('DATE') }}"
+        >{{ post.date |> date("DATE") }}</time>: {{ post.title }}</a>
+    </li>
+  {{ /for }}
+</ul>
