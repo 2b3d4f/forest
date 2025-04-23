@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ lang || metas.lang }}" class="not-motion-reduce:scroll-smooth scroll-pt-5">
+<html
+  lang="{{ lang || metas.lang }}"
+  class="not-motion-reduce:scroll-smooth scroll-pt-5"
+>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +13,10 @@
     :root {
       --fallback-serif: var(--font-serif);
       --fallback-sans: var(--font-sans);
-      --font-display: display, {{ if (fonts.fallback.display == "serif") }}var(--fallback-serif){{else}}var(--fallback-sans){{ /if }};
-      --font-text: text, {{ if (fonts.fallback.display == "serif") }}var(--fallback-serif){{else}}var(--fallback-sans){{ /if }};
+      --font-display: display, {{ if (fonts.fallback.display == "serif")
+        }}var(--fallback-serif){{else}}var(--fallback-sans){{ /if }};
+      --font-text: text, {{ if (fonts.fallback.display == "serif")
+        }}var(--fallback-serif){{else}}var(--fallback-sans){{ /if }};
     }
     </style>
     <link rel="stylesheet" href="/prism.css">
