@@ -55,7 +55,9 @@ jobs:
           fi
 
       - name: Go to the "demo" directory
-        run: cd demo
+        run: |
+          cd demo
+          ls
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
