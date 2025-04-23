@@ -1,4 +1,3 @@
-import gitData from "./plugins/git_data.ts";
 import {
   googleFonts,
   Options as GoogleFontsOptions,
@@ -117,7 +116,6 @@ export default function (userOptions?: Options) {
     site.data("fonts", options.fonts);
 
     site
-      .use(gitData())
       .use(addRemarkToc(options.addToc))
       .use(
         googleFonts({
