@@ -54,6 +54,9 @@ jobs:
             deno task build
           fi
 
+      - name: Go to the "demo" directory
+        run: cd demo
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
