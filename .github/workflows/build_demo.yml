@@ -3,11 +3,16 @@ name: Build demo
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build:
@@ -22,7 +27,45 @@ jobs:
         with:
           deno-version: v2.x
 
-      - run: cd demo
+      - name: Cache Deno depencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            _deno_cache
+            _cache
+          key: ${{ runner.os }}-deno-
 
-      - name: Build GitHub Pages with Lume
-        uses: lumeland/build/gh-pages@main
+      - name: Setup Pages
+        id: setup-pages
+        uses: actions/configure-pages@v5
+
+      - name: Run build task
+        shell: bash
+        env:
+          DENO_DIR: _deno_cache
+        run: |
+          LOCATION=${{ steps.setup-pages.outputs.base_url }}
+
+          cd demo
+
+          if [[ -n $LOCATION ]]; then
+            deno task build --location=$LOCATION
+          else
+            deno task build
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site"
+
+  deploy:
+    environment:
+      name: github-pages
+      # url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
