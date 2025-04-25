@@ -46,8 +46,6 @@ jobs:
         run: |
           LOCATION=${{ steps.setup-pages.outputs.base_url }}
 
-          # cd demo
-
           if [[ -n $LOCATION ]]; then
             deno task build --location=$LOCATION
           else
