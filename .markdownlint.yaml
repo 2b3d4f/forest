@@ -3,3 +3,4 @@ no-inline-html: false
 line-length: false
 no-blanks-blockquote: false
 no-emphasis-as-heading: false
+no-duplicate-heading: false
