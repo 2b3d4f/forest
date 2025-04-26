@@ -44,7 +44,7 @@ async function setCommitHash(site: Site) {
 }
 
 /**
- * A shitty plugin to set git data on all pages
+ * A plugin to set git data on all pages
  */
 export function gitData() {
   return (site: Site) => {
