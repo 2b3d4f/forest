@@ -1,13 +1,16 @@
 import Site from "lume/core/site.ts";
 import { merge } from "lume/core/utils/object.ts";
 import { log } from "lume/core/utils/log.ts";
+import { Extensions } from "lume/core/utils/path.ts";
 
 export interface Options {
+  extentions?: Extensions;
   placeholder?: RegExp;
   text?: string;
 }
 
 export const defaults: Options = {
+  extentions: [".md"],
   placeholder: /<!-- toc -->/g,
   text: "## Table of Contents",
 };
@@ -33,7 +36,7 @@ function toValidHtmlId(input: string): string {
 export function addRemarkToc(userOptions: Options) {
   const options = merge(defaults, userOptions);
   return (site: Site) => {
-    site.preprocess([".md"], (pages) => {
+    site.preprocess(options.extentions, (pages) => {
       for (const page of pages) {
         try {
           page.data.content = replacePlaceholder(

@@ -36,5 +36,5 @@ This plugin requires the Lume [remark](https://lume.land/plugins/remark/) plugin
 
 ### What this plugin does
 
-- Before building the page, replace the existing `placeholder` text with the `text` text in all `.md` files.
+- Before building the page, replace the existing `placeholder` text with the `text` text in all `.md` (configurable in settings) files.
 - After building the page, find the generated table of contents and wrap it in a `<div>` tag with a class of `table-of-contents`.
