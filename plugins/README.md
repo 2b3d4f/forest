@@ -32,7 +32,7 @@ site.use(addRemarkToc({
 }));
 ```
 
-This plugin requires the Lume `remark` plugin and the remark plugins `remark-toc`, `rehype-autolink-headings` and `rehype-slug`.
+This plugin requires the Lume [remark](https://lume.land/plugins/remark/) plugin and the remark plugins [remark-toc](https://github.com/remarkjs/remark-toc), [rehype-autolink-headings](https://github.com/rehypejs/rehype-autolink-headings) and [rehype-slug](https://github.com/rehypejs/rehype-slug).
 
 ### What this plugin does
 
