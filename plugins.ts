@@ -9,12 +9,9 @@ import {
 } from "./plugins/add_remark_toc.ts";
 import { remark, Options as RemarkOptions } from "lume/plugins/remark.ts";
 import { prism, Options as PrismOptions } from "lume/plugins/prism.ts";
-import remarkGfm from "npm:remark-gfm@4";
 import remarkCjkFriendly from "npm:remark-cjk-friendly@1";
 import remarkCjkFriendlyGfmStrikethrough from "npm:remark-cjk-friendly-gfm-strikethrough@1";
 import remarkToc from "npm:remark-toc@9";
-import rehypeRaw from "npm:rehype-raw@7";
-// import rehypeSanitize from "npm:rehype-sanitize@6";
 import rehypeSlug from "npm:rehype-slug@6";
 import rehypeAutolinkHeadings from "npm:rehype-autolink-headings@7";
 import basePath from "lume/plugins/base_path.ts";
@@ -78,14 +75,11 @@ export const defaults: Options = {
   },
   remark: {
     remarkPlugins: [
-      remarkGfm,
       remarkCjkFriendly,
       remarkCjkFriendlyGfmStrikethrough,
       remarkToc,
     ],
     rehypePlugins: [
-      rehypeRaw,
-      // rehypeSanitize, //Sanitize breaks footnotes
       rehypeSlug,
       rehypeAutolinkHeadings,
     ],
