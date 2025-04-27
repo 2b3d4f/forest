@@ -9,15 +9,11 @@ Ever wondered why your code gets sluggish in the fall? It’s not the memory lea
 
 <!-- toc -->
 
----
-
 ## Why Squirrels? Why Now?
 
 Picture this: you’re mid-sprint, wrestling merge conflicts, when your monitor suddenly goes black. Instead of shaking your fist at the sky, imagine a friendly squirrel gently rebooting your machine—because it chewed through your neighbor’s power cord instead!
 
 Let’s face it, while A.I. can refactor code, only a squirrel can stash a bug in an unreachable branch for later. They’re natural **version control** specialists.
-
----
 
 ## Setting Up Your Squirrel Stack
 
@@ -37,11 +33,7 @@ Let’s face it, while A.I. can refactor code, only a squirrel can stash a bug i
     - If they stash the nut away: approved!
     - If they roll it back to you: **request changes**.
 
----
-
 > **Pro Tip:** Provide a branch basket to track all the branches your team squirrels create. Warning: This will be full of entirely non-code branches. Expect leaves.
-
----
 
 ## Code Review (with Tails)
 
@@ -50,16 +42,12 @@ Automated tools miss subtle issues, like noticing when a function is overly “n
 - **Live Peer Review:** Squirrels line up, twitch their noses, and chatter if they spot any syntax errors.
 - **Linting:** Squirrel-induced lint is usually actual lint. Adds authenticity to your repo.
 
----
-
 ## Nuts About CI/CD
 
 Continuous Integration/Continuous Deployment can be fully squirrel-automated:
 
 - **Build:** Place seeds in the code wheel; if the squirrel runs, the build passes.
 - **Deploy:** A team of squirrels recreates your directory structure in the backyard for advanced staging.
-
----
 
 ## Frequently Asked Questions
 
@@ -74,8 +62,6 @@ Continuous Integration/Continuous Deployment can be fully squirrel-automated:
 > **Q: My project is mission-critical. Is squirrel up-time reliable?**
 >
 > A: Only if you provide offsite storage (a bird feeder) and disaster recovery (more peanuts).
-
----
 
 ## Final Nut
 
