@@ -16,15 +16,15 @@
           :where([class~="not-prose"], [class~="not-prose"] *)
         )
     ) {
-    @apply p-4 py-3 border border-[var(--tw-prose-hr)] rounded-lg prose-sm;
+    @apply p-5 py-3.5 border border-[var(--tw-prose-hr)] rounded-lg prose-sm my-5;
     &:first-child {
-      @apply mt-5;
+      @apply mt-0;
     }
     &:last-child {
-      @apply mb-5;
+      @apply mb-0;
     }
     > :first-child {
-      @apply mt-0 mb-5;
+      @apply mt-0;
     }
     > :last-child {
       @apply mb-0;
