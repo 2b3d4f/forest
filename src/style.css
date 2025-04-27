@@ -16,7 +16,7 @@
           :where([class~="not-prose"], [class~="not-prose"] *)
         )
     ) {
-    @apply p-5 border border-[var(--tw-prose-hr)] rounded-lg;
+    @apply p-4 py-3 border border-[var(--tw-prose-hr)] rounded-lg prose-sm;
     &:first-child {
       @apply mt-5;
     }
