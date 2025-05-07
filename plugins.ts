@@ -3,13 +3,19 @@ import basePath from "lume/plugins/base_path.ts";
 import { date, Options as DateOptions } from "lume/plugins/date.ts";
 import { feed, Options as FeedOptions } from "lume/plugins/feed.ts";
 import { favicon, Options as FaviconOptions } from "lume/plugins/favicon.ts";
-import { googleFonts, Options as GoogleFontsOptions } from "lume/plugins/google_fonts.ts";
+import {
+  googleFonts,
+  Options as GoogleFontsOptions,
+} from "lume/plugins/google_fonts.ts";
 import { metas } from "lume/plugins/metas.ts";
 import { prism, Options as PrismOptions } from "lume/plugins/prism.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import { sitemap, Options as SitemapOptions } from "lume/plugins/sitemap.ts";
-import { tailwindCSS, Options as TailwindCSSOptions } from "lume/plugins/tailwindcss.ts";
+import {
+  tailwindCSS,
+  Options as TailwindCSSOptions,
+} from "lume/plugins/tailwindcss.ts";
 import minifyHTML from "lume/plugins/minify_html.ts";
 import lightningCss from "lume/plugins/lightningcss.ts";
 
@@ -78,10 +84,7 @@ export const defaults: Options = {
       remarkCjkFriendlyGfmStrikethrough,
       remarkToc,
     ],
-    rehypePlugins: [
-      rehypeSlug,
-      rehypeAutolinkHeadings,
-    ],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
   },
   googleFonts: {
     fonts: {
@@ -106,28 +109,36 @@ export default function (userOptions?: Options) {
     site.data("fonts", options.fonts);
 
     site
-      .use(addRemarkToc(options.addToc))
-      .use(
-        googleFonts({
-          cssFile: "style.css",
-          placeholder: "/* google-fonts-placeholder */",
-          fonts: options.googleFonts.fonts,
-        } as GoogleFontsOptions)
-      )
-      .use(resolveUrls())
-      .use(slugifyUrls())
-      .use(remark(options.remark))
-      .use(basePath())
+      // Static files
+      .add("style.css")
+      .add("uploads")
+
       .use(date(options.date))
       .use(metas())
       .use(prism(options.prism))
-      .use(sitemap(options.sitemap))
-      .use(feed(options.feed))
-      .use(favicon(options.favicon))
+      .use(remark(options.remark))
+      .use(addRemarkToc(options.addToc))
+
+      // Style
+      .use(
+        googleFonts({
+          fonts: options.googleFonts.fonts,
+        } as GoogleFontsOptions)
+      )
       .use(tailwindCSS(options.tailwindCSS))
-      .use(minifyHTML())
       .use(lightningCss())
-      .add("style.css")
-      .add("uploads");
+
+      // URLs
+      .use(basePath())
+      .use(resolveUrls())
+      .use(slugifyUrls())
+
+      .use(favicon(options.favicon))
+
+      // Feed
+      .use(feed(options.feed))
+      .use(sitemap(options.sitemap))
+
+      .use(minifyHTML());
   };
 }
