@@ -3,8 +3,6 @@
 
 @import "css/prose_fix.css";
 
-/* google-fonts-placeholder */
-
 @theme {
   --font-display: display, system-ui;
   --font-text: text, system-ui;
