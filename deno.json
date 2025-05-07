@@ -1,9 +1,9 @@
 {
   "imports": {
     "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.16",
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@24fa52c6b4a3f7e83c434ce52baa75127a192e6a/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@6a17aac8bb5b95ba9c22f0bc36645c17e56c9b5d/",
-    "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.8/jsx-runtime.ts"
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@b2cd954148ac54db06957d2b70503de42c14a012/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@ba24aa8acb3eefb1cc0ef88c198c468793bcf286/",
+    "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.9/jsx-runtime.ts"
   },
   "lock": false,
   "tasks": {
@@ -28,5 +28,10 @@
   ],
   "unstable": [
     "temporal"
-  ]
+  ],
+  "lint": {
+    "plugins": [
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@b2cd954148ac54db06957d2b70503de42c14a012/lint.ts"
+    ]
+  }
 }
