@@ -33,7 +33,7 @@ function toValidHtmlId(input: string): string {
     .toLowerCase();
 }
 
-export function addRemarkToc(userOptions: Options) {
+export function addRemarkToc(userOptions?: Options) {
   const options = merge(defaults, userOptions);
   return (site: Site) => {
     site.preprocess(options.extentions, (pages) => {
