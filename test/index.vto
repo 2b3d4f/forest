@@ -4,6 +4,18 @@ title: Home
 
 <p>It works!</p>
 
-<p>Commit: {{ git.hash.long }}</p>
-<p>Created: {{ date }} </p>
-<p>Last Modified:{{ lastModified }} </p>
+<ul>
+  <li><code>hashes.repo</code>: <code>{{ hashes.repo }}</code></li>
+  <li>
+    <code>hashes.created</code>: <code>{{ hashes.created }}</code>
+  </li>
+  <li>
+    <code>hashes.modified</code>: <code>{{ hashes.modified }}</code>
+  </li>
+  <li>
+    <code>date</code>: <time datetime="{{ date |> date("ATOM") }}">{{ date |> date("HUMAN_DATETIME") }}
+  </li>
+  <li>
+    <code>lastModified</code>: <time datetime="{{ lastModified |> date("ATOM") }}">{{ lastModified |> date("HUMAN_DATETIME") }}</time>
+  </li>
+</ul>

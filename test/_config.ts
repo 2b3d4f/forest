@@ -1,7 +1,9 @@
 import lume from "lume/mod.ts";
 import theme from "theme/mod.ts";
 
-import gitData from "../plugins/git_data.ts";
+import gitDates from "../plugins/git_dates.ts";
+import gitHashes from "../plugins/git_hashes.ts";
+import repoLatestHash from "../plugins/repo_latest_hash.ts";
 
 const site = lume();
 
@@ -29,6 +31,8 @@ site
       },
     })
   )
-  .use(gitData());
+  .use(repoLatestHash())
+  .use(gitHashes())
+  .use(gitDates());
 
 export default site;
