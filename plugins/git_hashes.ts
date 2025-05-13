@@ -20,6 +20,7 @@ export const defaults: Options = {
 export function gitHashes(userOptions?: Options) {
   const options = merge(defaults, userOptions);
   return (site: Site) => {
+    site.mergeKey(options.hashesKey, "object")
     site.preprocess(options.extensions, (pages) => {
       for (const page of pages) {
         const entry = page.src.entry;
