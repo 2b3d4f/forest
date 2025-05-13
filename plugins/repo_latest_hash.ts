@@ -12,9 +12,6 @@ export const defaults: Options = {
   repoKey: "repo",
 };
 
-/**
- * A plugin to set repository's latest commit hash on all pages
- */
 export function repoLatestHash(userOptions?: Options) {
   const options = merge(defaults, userOptions);
   return (site: Site) => {
